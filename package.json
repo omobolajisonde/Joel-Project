@@ -2,6 +2,9 @@
   "name": "joel-project",
   "version": "1.0.0",
   "description": "A fingerprint based attendance system",
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "main": "app.js",
   "scripts": {
     "dev": "nodemon server.js",
