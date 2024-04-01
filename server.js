@@ -13,13 +13,12 @@ const {
 } = require("./handlers/deleteEnrolledStudentHandler");
 
 const PORT = process.env.PORT || 8080;
-const HOST = process.env.HOST || "localhost";
 
 const httpServer = createServer(app);
 // Initialize io with server
 const io = new Server(httpServer, {
   cors: {
-    origin: [`http://localhost:3000`],
+    origin: [`http://localhost:3000`, "https://joel-project-fe.onrender.com"],
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
     credentials: true,
   },
@@ -43,7 +42,7 @@ io.on("connection", (socket) => {
 connectToMongoDB()
   .then(() => {
     console.log("Connection to MongoDB is successful.");
-    httpServer.listen(PORT, HOST, () => {
+    httpServer.listen(PORT, () => {
       console.log("Server running on port ->", PORT);
     });
   })
